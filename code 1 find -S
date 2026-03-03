@@ -1,0 +1,22 @@
+import numpy as np
+# Training data
+data = np.array([
+    ['Sunny', 'Warm', 'Normal', 'Strong', 'Yes'],
+    ['Sunny', 'Warm', 'High', 'Strong', 'Yes'],
+    ['Rainy', 'Cold', 'High', 'Strong', 'No'],
+    ['Sunny', 'Warm', 'High', 'Weak', 'Yes']
+])
+# Initialize hypothesis
+h = ['0'] * (len(data[0]) - 1)
+
+for example in data:
+    if example[-1] == 'Yes':
+        for i in range(len(h)):
+            if h[i] == '0':
+                h[i] = example[i]
+            elif h[i] != example[i]:
+                h[i] = '?'
+
+print("Final Hypothesis:", h)
+Final Hypothesis: [np.str_('Sunny'), np.str_('Warm'), '?', '?']
+
